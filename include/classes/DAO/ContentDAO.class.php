@@ -119,6 +119,7 @@ class ContentDAO extends DAO {
 			               test_message = '".$addslashes($test_message)."'
 			         WHERE content_id = ".$content_id;
 
+
 			if ($this->execute($sql)) {
 				// update the courses.modified_date to the current timestamp
 				include_once(TR_INCLUDE_PATH.'classes/DAO/CoursesDAO.class.php');
@@ -150,7 +151,7 @@ class ContentDAO extends DAO {
 		global $addslashes;
 		
 		$sql = "UPDATE ".TABLE_PREFIX."content 
-		           SET ".$fieldName."='".$addslashes($fieldValue)."'
+		           SET ".$fieldName."='".addslashes($fieldValue)."'
 		         WHERE content_id = ".$contentID;
 		
 		if ($this->execute($sql)) {
@@ -235,6 +236,8 @@ class ContentDAO extends DAO {
 		          FROM ".TABLE_PREFIX."content 
 		         WHERE course_id=$courseID 
 		         ORDER BY content_parent_id, ordering";
+		
+		//ORDER BY content_parent_id, ordering
 		
 		return $this->execute($sql);
 	}

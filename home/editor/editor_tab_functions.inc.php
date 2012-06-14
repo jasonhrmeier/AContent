@@ -31,7 +31,10 @@ function get_tabs() {
 	$tabs[0] = array('content',       		'edit.inc.php',          'n');
 	$tabs[1] = array('metadata',    		'properties.inc.php',    'p');
 	$tabs[2] = array('alternative_content', 'alternatives.inc.php',  'l');	
-	$tabs[3] = array('tests',               'tests.inc.php',         't');	
+	$tabs[3] = array('tests',               'tests.inc.php',         't');
+	//catia
+	//$tabs[4] = array('forums', '');
+	
 	
 	return $tabs;
 }
@@ -237,9 +240,11 @@ function save_changes($redir, $current_tab) {
 			$_POST['_cid']    = $cid;
 			$_REQUEST['_cid'] = $cid;
 		}
-        // re-populate a4a tables based on the new content
-		populate_a4a($cid, $orig_body_text, $_POST['formatting']);
+
 		if ($cid == 0) return;
+        	// re-populate a4a tables based on the new content
+		populate_a4a($cid, $orig_body_text, $_POST['formatting']);
+		
 //	}
 
 	/* insert glossary terms */
