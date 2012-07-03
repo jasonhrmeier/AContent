@@ -129,17 +129,17 @@ $rows = $contentDAO->getContentByCourseID($course_id);
 
 /***************************************
  * dnd_themod
- * add the theme, if present
+ * add the layout, if present
  * donadiomauro@gmail.com
  * 
  * */
-include_once(TR_INCLUDE_PATH . '../dnd_themod/system/Themes.class.php');
+include_once(TR_INCLUDE_PATH . '../dnd_themod/system/Layout.class.php');
 
-$dnd_themod_theme	= new Themes('');
+$dnd_themod_layout	= new Layout('');
 
-// Array containing content and properties (such as content_id, course_id, theme ..)
-// the 'theme' property is required to add the proper content into the manifest file
-$rows				= $dnd_themod_theme->appendStyle($rows, $zipfile, $_content_id);
+// Array containing content and properties (such as content_id, course_id, layout ..)
+// the 'layout' property is required to add the proper content into the manifest file
+$rows				= $dnd_themod_layout->appendStyle($rows, $zipfile, $_content_id);
 
 /***************************************/
 
@@ -265,19 +265,19 @@ $mnf	.= "<metadata/>\n";
 	// take all .css documents in "commoncartridge" folder
 	$css	= array();
 	for($i=0; $i < count($rows); $i++){
-		if(!in_array($rows[$i]['theme'], $css) AND $rows[$i]['theme'] != null){
+		if(!in_array($rows[$i]['layout'], $css) AND $rows[$i]['layout'] != null){
 
-			$css[]	= $rows[$i]['theme'];
+			$css[]	= $rows[$i]['layout'];
 
 			// add the .css file
-			$mnf	.= "\n<file href=\"resources/commoncartridge/".$rows[$i]['theme'].".css\"/>\n";
+			$mnf	.= "\n<file href=\"resources/commoncartridge/".$rows[$i]['layout'].".css\"/>\n";
 
 			// add all the style folder content
-				// get all theme images
-				$images = glob("../../dnd_themod/themes/".$rows[$i]['theme']."/".$rows[$i]['theme']."/*.*");
+				// get all layout images
+				$images = glob("../../dnd_themod/layout/".$rows[$i]['layout']."/".$rows[$i]['layout']."/*.*");
 
 				for($j=0; $j<count($images); $j++){
-					$mnf	.= "<file href=\"resources/commoncartridge/".$rows[$i]['theme']."/".basename($images[$j])."\"/>\n";
+					$mnf	.= "<file href=\"resources/commoncartridge/".$rows[$i]['layout']."/".basename($images[$j])."\"/>\n";
 				}
 		}
 	}

@@ -223,8 +223,8 @@ if ($content_row['text'] == '' && empty($content_test_ids)){
 						
 						//$(document).ready( function (){  
 						//.prop("checked",true)
-						//$(\'#attivaModelli_btn\').attr(\'checked\', true);
-						//$(\'#attivaModelli_btn\').triggerHandler(\'change\');
+						//$(\'#activate_page_template_btn\').attr(\'checked\', true);
+						//$(\'#activate_page_template_btn\').triggerHandler(\'change\');
 					} 
 					
 			} else {
