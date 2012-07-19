@@ -1,0 +1,12 @@
+type[] = knowledge
+type[] = meta-competency
+type[] = creative
+
+knowledge = conoscere, memorizzare, classificare, ordinare, applicare, rievocare
+
+meta-competency = descrivere, riconoscere, tradurre, eseguire, verificare, interpretare, esemplificare, riassumere, comparare, spiegare
+
+creative = tentare soluzioni, formulare ipotesi, riconoscere problemi chiave, generare, pianificare, produrre, formulare soluzioni nuove
+
+
+ 

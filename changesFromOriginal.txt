@@ -1,0 +1,199 @@
+Search "theme" (84 hits in 6 files)
+  C:\Users\Jason\AContent\dnd_themod\system\AJAX_actions.php (1 hits)
+	Line 7: 	// enable lesson theme
+  C:\Users\Jason\AContent\dnd_themod\system\dnd_themod.css (1 hits)
+	Line 14: #dnd_themod #themeScreenshot{
+  C:\Users\Jason\AContent\dnd_themod\system\Layout.class.php (39 hits)
+	Line 7: 			1. changed theme.info from lines 119 & 123 of original file
+	Line 104: 		* According to preset criteria (eg confrontation between versions of the theme and core)
+	Line 107: 		* Output: list of available layout compatiblità skimmed according to each theme
+	Line 123: 					$isfile	= $isdir.'/layout.info';//--------file changed from theme.info
+	Line 127: 						$info	= parse_ini_file($isdir.'/layout.info');//--------file changed from theme.info
+	Line 151: 						// I put the info of the current theme into a vector
+	Line 179: 			$ui		.= '<label for="listatemi">'._AT('theme_select').'</label>';
+	Line 202: 			$ui		.= '<div><img src="" alt="Screenshot" desc="Screenshot" title="Screenshot" id="themeScreenshot" /></div>';
+	Line 204: 			$ui		.= '<div><input type="submit" value="'._AT('theme_course_apply').'" id="applicaTemaCorso_btn" name="applicaTemaCorso_btn" /></div>';
+	Line 210: 			$ui		.= '<div><input type="submit" style="'.$display.'" value="'._AT('theme_lesson_apply').'" id="applicaTemaLezione_btn" name="applicaTemaLezione_btn" /></div>';
+	Line 235: 			// theme reset
+	Line 237: 				$theme_name		= '';
+	Line 239: 				// new theme
+	Line 240: 				$theme_name		= $tema_selezionato;
+	Line 282: 				if($theme_name != ''){
+	Line 288: 				$contentDAO->UpdateField($cid, 'theme', $theme_name);
+	Line 288: 				$contentDAO->UpdateField($cid, 'theme', $theme_name);
+	Line 313: 			// theme reset
+	Line 315: 				$theme_name		= '';
+	Line 317: 				// new theme
+	Line 318: 				$theme_name		= $tema_selezionato;
+	Line 350: 			if($theme_name != ''){
+	Line 357: 			$contentDAO->UpdateField($this->content_id, 'theme', $theme_name);
+	Line 357: 			$contentDAO->UpdateField($this->content_id, 'theme', $theme_name);
+	Line 367: 		 * Cleaning is the removal of the block <div id="dnd"> <div id="anteprima-footer"> </ div> built from the theme
+	Line 444: 				if($rows[$i]['theme'] != ''){
+	Line 446: 					$rows[$i]['head']					= '<link rel="stylesheet" href="commoncartridge/'.$rows[$i]['theme'].'.css" type="text/css" />'.$rows[$i]['head'];
+	Line 447: 					//$rows[$i]['head']					= '<link rel="stylesheet" href="'.$rows[$i]['theme'].'.css" type="text/css" />'.$rows[$i]['head'];
+	Line 482: 						//if(!in_array($rows[$i]['theme'], $styles)){
+	Line 486: 						$styles[]		= $rows[$i]['theme'];
+	Line 489: 						if(in_array($rows[$i]['theme'], $styles)){
+	Line 492: 							if($stylesheet = file_get_contents('../../dnd_themod/layout/'.$rows[$i]['theme'].'/'.$rows[$i]['theme'].'.css')){
+	Line 492: 							if($stylesheet = file_get_contents('../../dnd_themod/layout/'.$rows[$i]['theme'].'/'.$rows[$i]['theme'].'.css')){
+	Line 496: 								$zipfile->add_file($stylesheet, 'resources/commoncartridge/'.$rows[$i]['theme'].'.css');
+	Line 499: 								$src	= '../../dnd_themod/layout/'.$rows[$i]['theme'].'/'.$rows[$i]['theme'].'/';
+	Line 499: 								$src	= '../../dnd_themod/layout/'.$rows[$i]['theme'].'/'.$rows[$i]['theme'].'/';
+	Line 500: 								//$dst	= 'resources/commoncartridge/'.$rows[$i]['theme'].'/';
+	Line 501: 								$dst	= 'resources/commoncartridge/'.$rows[$i]['theme'].'/';
+	Line 503: 								$zipfile->create_dir('resources/commoncartridge/'.$rows[$i]['theme'].'/');
+  C:\Users\Jason\AContent\dnd_themod\system\Layout.js (39 hits)
+	Line 7: 	if("<?php echo $content_theme; ?>" != ''){
+	Line 8: 		current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 8: 		current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 8: 		current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 8: 		current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 9: 		$('head').append('<link rel="stylesheet" href="' + current_theme + '" type="text/css" />');
+	Line 27: 		var titolo_modulo	= "<?php echo _AT('themes'); ?>";
+	Line 74: 			if("<?php echo $apply_lesson_theme; ?>" == 0){
+	Line 79: 			$(".form-data tr:last").before("<tr><td colspan=\"2\"><fieldset class=\"dnd_themod_system_fieldset\"><legend><?php echo _AT('themes'); ?></legend>\
+	Line 81: 										<td align=\"left\"><?php echo _AT('theme_lesson_apply'); ?></td>\
+	Line 109: 		$('#themeScreenshot').attr('src',DEFAULT_SCREENSHOT);
+	Line 123: 			$('#dnd_themod_themes').remove();
+	Line 136: 			if("<?php echo $content_theme; ?>" != ''){
+	Line 137: 				current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 137: 				current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 137: 				current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 137: 				current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 139: 					if($(this).attr('href') == current_theme)
+	Line 151: 					if("<?php echo $content_theme; ?>" != ''){
+	Line 152: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 152: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 152: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 152: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 155: 								$(this).attr('href', current_theme);
+	Line 160: 					$('#themeScreenshot').attr('src', DEFAULT_SCREENSHOT);
+	Line 163: 					$('#dnd_themod_themes').remove();
+	Line 188: 					if("<?php echo $content_theme; ?>" != ''){
+	Line 189: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 189: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 189: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 189: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 191: 							if($(this).attr('href') == current_theme)
+	Line 195: 						//alert('rimosso tema ' + current_theme);
+	Line 199: 					percorso_screenshot = '<?php echo $themes_dir; ?>' + str;
+	Line 209: 					        	$('#themeScreenshot').attr('src', DEFAULT_SCREENSHOT);
+	Line 214: 					            $('#themeScreenshot').attr('src', immagine);
+	Line 223: 						$('head').append('<link rel="stylesheet" href="<?php echo $dnd_themod; ?>system/themes.css" type="text/css" id="dnd_themod_themes" />');
+	Line 223: 						$('head').append('<link rel="stylesheet" href="<?php echo $dnd_themod; ?>system/themes.css" type="text/css" id="dnd_themod_themes" />');
+	Line 226: 						$('head').append('<link rel="stylesheet" href="<?php echo $themes_dir; ?>' + str + '/' + str + '.css" type="text/css" id="dnd_themod_view" />');
+  C:\Users\Jason\AContent\dnd_themod\system\Models.class.php (2 hits)
+	Line 79: 		 * Read loaded themes creating a list of available themes
+	Line 79: 		 * Read loaded themes creating a list of available themes
+  C:\Users\Jason\AContent\dnd_themod\system\Structures.class.php (2 hits)
+	Line 67: 		 * Read loaded themes creating a list of available themes
+	Line 67: 		 * Read loaded themes creating a list of available themes
+Search "Themes" (1 hits in 1 files)
+  C:\Users\Jason\AContent\dnd_themod\system\Layout.class.php (1 hits)
+	Line 405: 			die('Ho bloccato Themes.class.php perch&#232; va parametrizzata!');
+Search "Themes" (42 hits in 6 files)
+  C:\Users\Jason\AContent\dnd_themod\system\Themes.js (16 hits)
+	Line 8: 		current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 27: 		var titolo_modulo	= "<?php echo _AT('themes'); ?>";
+	Line 79: 			$(".form-data tr:last").before("<tr><td colspan=\"2\"><fieldset class=\"dnd_themod_system_fieldset\"><legend><?php echo _AT('themes'); ?></legend>\
+	Line 109: 		$('#themeScreenshot').attr('src',DEFAULT_SCREENSHOT);
+	Line 123: 			$('#dnd_themod_themes').remove();
+	Line 137: 				current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 152: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 160: 					$('#themeScreenshot').attr('src', DEFAULT_SCREENSHOT);
+	Line 163: 					$('#dnd_themod_themes').remove();
+	Line 189: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 199: 					percorso_screenshot = '<?php echo $themes_dir; ?>' + str;
+	Line 209: 					        	$('#themeScreenshot').attr('src', DEFAULT_SCREENSHOT);
+	Line 214: 					            $('#themeScreenshot').attr('src', immagine);
+	Line 223: 						$('head').append('<link rel="stylesheet" href="<?php echo $dnd_themod; ?>system/themes.css" type="text/css" id="dnd_themod_themes" />');
+	Line 223: 						$('head').append('<link rel="stylesheet" href="<?php echo $dnd_themod; ?>system/themes.css" type="text/css" id="dnd_themod_themes" />');
+	Line 226: 						$('head').append('<link rel="stylesheet" href="<?php echo $themes_dir; ?>' + str + '/' + str + '.css" type="text/css" id="dnd_themod_view" />');
+  C:\Users\Jason\AContent\dnd_themod\system\Structures.class.php (2 hits)
+	Line 67: 		 * Read loaded themes creating a list of available themes
+	Line 67: 		 * Read loaded themes creating a list of available themes
+  C:\Users\Jason\AContent\dnd_themod\system\Models.class.php (2 hits)
+	Line 79: 		 * Read loaded themes creating a list of available themes
+	Line 79: 		 * Read loaded themes creating a list of available themes
+  C:\Users\Jason\AContent\dnd_themod\system\AJAX_actions.php (1 hits)
+	Line 4: 	#	THEMES
+  C:\Users\Jason\AContent\dnd_themod\system\dnd_themod.css (1 hits)
+	Line 14: #dnd_themod #themeScreenshot{
+  C:\Users\Jason\AContent\dnd_themod\system\Layout.class.php (20 hits)
+	Line 79: 		 * Read loaded themes creating a list of available themes
+	Line 79: 		 * Read loaded themes creating a list of available themes
+	Line 90: 			// I read the list of available themes
+	Line 91: 			$dir		= scandir($this->mod_path['themes_dir_int']);
+	Line 93: 			// subtract the files to be excluded from the list of available themes
+	Line 96: 			// I call the function that validates themes available
+	Line 103: 		 * The following function reads from the file system of the existing themes and validates them
+	Line 105: 		* Returning an array of themes available and valid.
+	Line 106: 		* Input: $ dir [] list of available themes
+	Line 107: 		* Output: list of available themes compatiblità skimmed according to each theme
+	Line 113: 			// scan all existing themes
+	Line 117: 				$isdir	= $this->mod_path['themes_dir_int'].$item;
+	Line 163: 		* Graphical user the list of themes available.
+	Line 166: 		* Input: $ listaTemi[] list of available themes occurred
+	Line 187: 			// I post all the themes from the options available
+	Line 202: 			$ui		.= '<div><img src="" alt="Screenshot" desc="Screenshot" title="Screenshot" id="themeScreenshot" /></div>';
+	Line 405: 			die('Ho bloccato Themes.class.php perch&#232; va parametrizzata!');
+	Line 408: 			$stylesheet = file_get_contents('../../dnd_themod/themes/unibo/unibo.css');
+	Line 492: 							if($stylesheet = file_get_contents('../../dnd_themod/themes/'.$rows[$i]['theme'].'/'.$rows[$i]['theme'].'.css')){
+	Line 499: 								$src	= '../../dnd_themod/themes/'.$rows[$i]['theme'].'/'.$rows[$i]['theme'].'/';
+Search "Themes" (42 hits in 6 files)
+  C:\Users\Jason\AContent\dnd_themod\system\Themes.js (16 hits)
+	Line 8: 		current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 27: 		var titolo_modulo	= "<?php echo _AT('themes'); ?>";
+	Line 79: 			$(".form-data tr:last").before("<tr><td colspan=\"2\"><fieldset class=\"dnd_themod_system_fieldset\"><legend><?php echo _AT('themes'); ?></legend>\
+	Line 109: 		$('#themeScreenshot').attr('src',DEFAULT_SCREENSHOT);
+	Line 123: 			$('#dnd_themod_themes').remove();
+	Line 137: 				current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 152: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 160: 					$('#themeScreenshot').attr('src', DEFAULT_SCREENSHOT);
+	Line 163: 					$('#dnd_themod_themes').remove();
+	Line 189: 						current_theme	= "<?php echo $themes_dir.$content_theme.'/'.$content_theme.'.css'; ?>";
+	Line 199: 					percorso_screenshot = '<?php echo $themes_dir; ?>' + str;
+	Line 209: 					        	$('#themeScreenshot').attr('src', DEFAULT_SCREENSHOT);
+	Line 214: 					            $('#themeScreenshot').attr('src', immagine);
+	Line 223: 						$('head').append('<link rel="stylesheet" href="<?php echo $dnd_themod; ?>system/themes.css" type="text/css" id="dnd_themod_themes" />');
+	Line 223: 						$('head').append('<link rel="stylesheet" href="<?php echo $dnd_themod; ?>system/themes.css" type="text/css" id="dnd_themod_themes" />');
+	Line 226: 						$('head').append('<link rel="stylesheet" href="<?php echo $themes_dir; ?>' + str + '/' + str + '.css" type="text/css" id="dnd_themod_view" />');
+  C:\Users\Jason\AContent\dnd_themod\system\Themes.class.php (20 hits)
+	Line 79: 		 * Read loaded themes creating a list of available themes
+	Line 79: 		 * Read loaded themes creating a list of available themes
+	Line 90: 			// I read the list of available themes
+	Line 91: 			$dir		= scandir($this->mod_path['themes_dir_int']);
+	Line 93: 			// subtract the files to be excluded from the list of available themes
+	Line 96: 			// I call the function that validates themes available
+	Line 103: 		 * The following function reads from the file system of the existing themes and validates them
+	Line 105: 		* Returning an array of themes available and valid.
+	Line 106: 		* Input: $ dir [] list of available themes
+	Line 107: 		* Output: list of available themes compatiblità skimmed according to each theme
+	Line 113: 			// scan all existing themes
+	Line 117: 				$isdir	= $this->mod_path['themes_dir_int'].$item;
+	Line 163: 		* Graphical user the list of themes available.
+	Line 166: 		* Input: $ listaTemi[] list of available themes occurred
+	Line 187: 			// I post all the themes from the options available
+	Line 202: 			$ui		.= '<div><img src="" alt="Screenshot" desc="Screenshot" title="Screenshot" id="themeScreenshot" /></div>';
+	Line 405: 			die('Ho bloccato Themes.class.php perch&#232; va parametrizzata!');
+	Line 408: 			$stylesheet = file_get_contents('../../dnd_themod/themes/unibo/unibo.css');
+	Line 492: 							if($stylesheet = file_get_contents('../../dnd_themod/themes/'.$rows[$i]['theme'].'/'.$rows[$i]['theme'].'.css')){
+	Line 499: 								$src	= '../../dnd_themod/themes/'.$rows[$i]['theme'].'/'.$rows[$i]['theme'].'/';
+  C:\Users\Jason\AContent\dnd_themod\system\Structures.class.php (2 hits)
+	Line 67: 		 * Read loaded themes creating a list of available themes
+	Line 67: 		 * Read loaded themes creating a list of available themes
+  C:\Users\Jason\AContent\dnd_themod\system\Models.class.php (2 hits)
+	Line 79: 		 * Read loaded themes creating a list of available themes
+	Line 79: 		 * Read loaded themes creating a list of available themes
+  C:\Users\Jason\AContent\dnd_themod\system\AJAX_actions.php (1 hits)
+	Line 4: 	#	THEMES
+  C:\Users\Jason\AContent\dnd_themod\system\dnd_themod.css (1 hits)
+	Line 14: #dnd_themod #themeScreenshot{
+Search "getConfig" (3 hits in 3 files)
+  C:\Users\Jason\AContent\dnd_themod\system\Themes.class.php (1 hits)
+	Line 74: 		public function getConfig(){
+  C:\Users\Jason\AContent\dnd_themod\system\Models.class.php (1 hits)
+	Line 74: 		public function getConfig(){
+  C:\Users\Jason\AContent\dnd_themod\system\Structures.class.php (1 hits)
+	Line 62: 		/*public function getConfig(){

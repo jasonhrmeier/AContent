@@ -219,7 +219,7 @@ if ($content_row['text'] == '' && empty($content_test_ids)){
 					$row = $contentDAO->get($cid);
 					
 					if($row['structure']!='') {
-						$content = '<script language="javascript" type="text/javascript">$(\'#attivaModelli_btn\').prop(\'checked\', true).trigger("change");</script>';
+						$content = '<script language="javascript" type="text/javascript">$(\'#activate_page_template_btn\').prop(\'checked\', true).trigger("change");</script>';
 						
 						//$(document).ready( function (){  
 						//.prop("checked",true)

@@ -1,0 +1,16 @@
+;* Indicates required fields
+
+;* Public name of the page_template
+Title and name = 3 columns
+
+;* Description of the page_template (known ..)
+Title and description = 3 columns
+
+;* Author
+@ author = Mauro Donadio mauro.donadio@studio.unibo.it
+
+;* Version of AContent
+core = 1.2
+
+; Files / folders you need
+; Files [] =

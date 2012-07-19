@@ -1,0 +1,56 @@
+; structure
+name = creative based
+
+; description
+description	= 
+
+; * Autore
+author		= Catia Prandi
+
+; * versione di AContent
+core		= 1.2
+
+; page template
+
+pageTemplName[] = overview
+min_overview = 1
+max_overview = 1
+
+
+pageTemplName[] = goals
+min_goals = 1
+max_goals = 1
+
+
+pageTemplName[] = activities
+min_activities = 1
+max_activities= x
+
+
+activities[] = activity
+min_activity = 1
+max_activity = 1
+
+activities[] = forum
+min_forum = 1
+max_forum = 1
+
+activities[] = e-activity
+min_e-activity = 1
+max_e-activity = 1
+
+pageTemplName[] = references
+min_references = 1
+max_references = 1
+
+; test page
+testName[] = e-activity
+
+; forum page
+forumName[] = forum
+
+
+
+
+
+

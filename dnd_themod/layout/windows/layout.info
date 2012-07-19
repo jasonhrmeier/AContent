@@ -1,0 +1,14 @@
+﻿
+* Indicates required fields
+
+; Name of the public template (if not specified will use the theme name)
+name = "Microsoft Windows";
+
+; Description of the page_template (known ..)
+description = "Microsoft Windows";
+
+Author:
+author = "Mauro Donadio mauro.donadio@studio.unibo.it ";
+
+* Version of AContent
+core = "1.2";

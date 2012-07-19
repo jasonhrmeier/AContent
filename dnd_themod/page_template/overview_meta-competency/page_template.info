@@ -1,0 +1,16 @@
+;* Indicates required fields
+
+;* Public name of the page_template
+name = Plain Text
+
+;* Description of the page_template (known ..)
+description = This is a test pattern created by Mauro Donadio
+
+;* Author
+@ author = Mauro Donadio mauro.donadio@studio.unibo.it
+
+;* Version of AContent
+core = 1.2
+
+; Files / folders you need
+; Files [] =
