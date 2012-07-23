@@ -12,24 +12,31 @@
 	//document.onload = function() {
 		// This line allows us to display the form and only if JS 'enabled
 		// The switch depends on the module name (which, in the language file, and 'customizable)
-		var titolo_modulo	= "<?php echo _AT('page_templates'); ?>";
-		titolo_modulo		= titolo_modulo.replace(/ /g, '');
+	//	var titolo_modulo	= "<?php echo _AT('page_template'); ?>";
+	//	titolo_modulo		= titolo_modulo.replace(/ /g, '');
 
 		// if the user and 'an author authenticated
 		// Show the form
+		/*
 		if("<?php echo $is_author; ?>" == 1 && "<?php echo basename($_SERVER['PHP_SELF']); ?>" == "content.php"){
+			alert("inside if before code");
 			$('#menu_' + titolo_modulo + ' form').show();
+			alert("inside if after code");
 		}else{
-			$('#menu_' + titolo_modulo).hide();
+			alert("in else before code");
+			$('#menu_' + titolo_modulo + ' form').hide();
+			alert("in else after code");
+		//	$('#menu_' + titolo_modulo).hide();
 			//$('#menu_' + titolo_modulo).prev().hide();
 			//$('#menu_' + titolo_modulo).siblings('br').slice(-1).remove();
 		}
-
+*/
 		/*
 		if($('#view').is('*'))
 			base			= $('#view');
 		else
 		*/
+		alert("commented out if/else");
 			base			= $('#content-text');
 
 		////////////////////////////////////////
@@ -148,7 +155,7 @@
 				// disable ORDER PAGE_TEMPLATES				
 				$('#order_page_template_btn').attr('disabled','disabled');
 
-				$('head').append('<link rel="stylesheet" href="<?php echo $dnd_themod; ?>system/page_templates.css" type="text/css" />');
+				$('head').append('<link rel="stylesheet" href="<?php echo $dnd_themod; ?>system/page_template.css" type="text/css" />');
 
 				// cut and paste toolBar
 				base.before(box_page_template + box_page_template_toolbox);

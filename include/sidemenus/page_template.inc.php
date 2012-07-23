@@ -115,8 +115,8 @@ if($cid == '' AND isset($_GET['_cid']) AND $_GET['_cid'] != '')
 ######################################
 #	JQuery script MODULE
 ######################################
+//include $mod_path['dnd_themod_sys'].'page_template.js';
 include $mod_path['dnd_themod_sys'].'page_template.js';
-
 ######################################
 #	I return the OUTPUT
 ######################################

@@ -145,7 +145,7 @@
 }
 
 /* toolbar button clears form (initially hidden) */
-.page_template .remove_page_templateTopBar{
+.page_template .remove_page_template_top_bar{
 	background:					transparent;
 	/*display:					none;*/
 }
@@ -194,7 +194,7 @@
 }
 
 /* generic content page_template */
-.page_template .page_templateContent{
+.page_template .page_template_content{
 
 	padding:					10px;
 	padding-bottom:				10px;
@@ -221,7 +221,7 @@
 }
 
 /* hover generic content page_template */
-.page_template .page_templateContent:hover{
+.page_template .page_template_content:hover{
 
 	border:						1px dashed #CCC;
 }
@@ -229,7 +229,7 @@
 .no_page_template{
 	background:					#F0F8FF;
 }
-.no_page_templateSorting{
+.no_page_template_sorting{
 	background:					#F0F8FF;
 }
 
@@ -238,7 +238,7 @@
 	display:					none;
 }
 
-.page_template .sortTools{
+.page_template .sort_tools{
 	/*border-top:					1px solid #EEE;*/
 	padding:					5px;
 	padding-top:				10px;
@@ -246,18 +246,18 @@
 	padding-right:				0px;
 	text-align:					right;
 }
-.page_template .sortTools img{
+.page_template .sort_tools img{
 	cursor:						pointer;
 }
-.page_template .sortTools img{
+.page_template .sort_tools img{
 	padding-right:				10px;
 }
-.page_template .sortTools img:last-child{
+.page_template .sort_tools img:last-child{
 	padding-right:				0px;
 }
 
 /* textarea */
-#body_text .page_templateContent:hover{
+#body_text .page_template_content:hover{
 	background-color:			#F0F8FF;
 }
 
@@ -268,7 +268,7 @@
 
 
 /* old content */
-.oldContent{
+.old_content{
 
 	border:						1px dashed #DDD;
 
@@ -286,7 +286,7 @@
 }
 
 /* hover effect of the old content */
-.oldContent:hover{
+.old_content:hover{
 	border:						1px dashed #008;
 }
 

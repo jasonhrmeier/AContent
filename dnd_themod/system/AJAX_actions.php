@@ -40,7 +40,7 @@
 	#	page_template
 	######################################
 	*/
-	if(isset($_POST['cid'], $_POST['action'], $_POST['text']) AND htmlentities($_POST['action']) == 'savepage_templateContent'){
+	if(isset($_POST['cid'], $_POST['action'], $_POST['text']) AND htmlentities($_POST['action']) == 'save_page_template_content'){
 
 		include_once('page_template.class.php');
 
@@ -66,7 +66,7 @@
 
 		$mod		= new page_template('');
 
-		$res		= $mod->get_page_templateStructure($page_templateID);
+		$res		= $mod->get_page_template_structure($page_templateID);
 		
 		echo $res;
 
