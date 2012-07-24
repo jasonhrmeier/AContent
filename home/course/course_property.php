@@ -65,15 +65,7 @@ else if($_POST['submit']){
 			{
 				
 				if(isset($_POST['_struct_name'])) {
-					
-					//$struc_manag = new StructureManager($_POST['_struct_name']);
-					//$page_temp = $struc_manag->get_page_temp();
-					
-					//createStruct($page_temp, $struc_manag, -1, $course_id);
-					
-					//die($_POST['_struct_name']);
 					$structs = explode("_", $_POST['_struct_name']);
-					//if(count($structs) > 1) {
 						
 						foreach ($structs as $s) {
 							$content_id = $contentDAO->Create($course_id, 0, 1, 0, 1, null, null, $s, 'null', null, 0, null, 1);
@@ -83,33 +75,15 @@ else if($_POST['submit']){
 						
 							$struc_manag->createStruct($page_temp, $content_id , $course_id);
 						}
-								
-					/*} else {
-							
-							$struc_manag = new StructureManager($_POST['_struct_name']);
-							$page_temp = $struc_manag->get_page_temp();
-								
-							$struc_manag->createStruct($page_temp, -1 , $course_id);
-						}*/
-					
-				} 
-				
-				
-				
-				
-				
-				
+				}
 			$msg->addFeedback('ACTION_COMPLETED_SUCCESSFULLY');
 			
 			header('Location: '.TR_BASE_HREF.'home/course/index.php?_course_id='.$course_id);
-			
-			
+
 			exit;
 			
 			}
 	}
-	
-	
 }
 
 // display
@@ -125,15 +99,6 @@ $onload = "document.form.title.focus();";
 require(TR_INCLUDE_PATH.'header.inc.php'); 
 
 
-
-	
 $savant->display('home/course/course_property.tmpl.php');
-
-
 require(TR_INCLUDE_PATH.'footer.inc.php');
-
-
-
-
-
 ?>
