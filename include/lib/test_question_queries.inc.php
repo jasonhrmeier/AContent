@@ -52,8 +52,8 @@ define('TR_SQL_QUESTION_FILLINBLANKS', "INSERT INTO ".TABLE_PREFIX."tests_questi
 							'%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', 
 							%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 
 							'%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', 0, 0)");
-							
-							
+
+
 //Question for Matching Simple
 define('TR_SQL_QUESTION_MATCHING', "INSERT INTO ".TABLE_PREFIX."tests_questions VALUES (	NULL, %d, %d, 5, '%s', '%s', 
 							'%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', 

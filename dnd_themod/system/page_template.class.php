@@ -44,14 +44,13 @@
 			/* content id of an optional chapter */
 			$this->content_id	= (isset($_REQUEST['cid']) ? intval($_REQUEST['cid']) : $_content_id);
 			$this->course_id	= (isset($_REQUEST['course_id']) ? intval($_REQUEST['course_id']) : $_course_id);
-
-			/*
+			
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			echo '<script type="text/javascript">';
 				echo 'alert("Mauro Donadioioioioio!");';
 			echo '</script>';
-			*/
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
 
-			//
 			if(isset($_POST['cid'], $_POST['action'], $_POST['text']) AND htmlentities($_POST['action']) == 'save_page_template_content'){
 				$this->apply_page_template_content();
 			}
@@ -113,7 +112,6 @@
 		function page_template_complies($dir = array()){
 			
 			// scandisc all existing page_template
-		
 			foreach($dir as $item){
 
 				$isdir	= $this->mod_path['page_template_dir_int'].$item;

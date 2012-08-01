@@ -183,7 +183,7 @@
 				var count = 0;
 				<?php
 					
-					foreach($page_Templates_list as $key => $value) {
+					foreach($list_page_template as $key => $value) {
 						echo 'count++;';
 						echo '$(".box_page_template").append($("<li>"));';
 						echo 'm = m + "<li><table id=\"'.$key.'\"><tr><td><img src=\"'.$dnd_themod.'/page_template/'.$key.'/screenshot.png\" /></td></tr><td class=\"desc\">'.$value['name'].'</td></tr></table></li>";';

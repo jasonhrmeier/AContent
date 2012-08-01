@@ -60,13 +60,13 @@ else if($_POST['submit']){
 				
 		
 		
-			if ($course_id = $coursesDAO->Create($_SESSION['user_id'], 'top', $access, $_POST['title'], $_POST['description'], 
-			                    null, null, null, $_POST['copyright'], $_POST['pri_lang'], null, null))
-			{
-				
+            if ($course_id = $coursesDAO->Create($_SESSION['user_id'], 'top',
+                $access, $_POST['title'], $_POST['description'], null, null,
+                null, $_POST['copyright'], $_POST['pri_lang'], null, null)){
+                
 				if(isset($_POST['_struct_name'])) {
 					$structs = explode("_", $_POST['_struct_name']);
-						
+
 						foreach ($structs as $s) {
 							$content_id = $contentDAO->Create($course_id, 0, 1, 0, 1, null, null, $s, 'null', null, 0, null, 1);
 								
@@ -74,18 +74,16 @@ else if($_POST['submit']){
 							$page_temp = $struc_manag->get_page_temp();
 						
 							$struc_manag->createStruct($page_temp, $content_id , $course_id);
-						}
-				}
+                        }
+                }
 			$msg->addFeedback('ACTION_COMPLETED_SUCCESSFULLY');
 			
 			header('Location: '.TR_BASE_HREF.'home/course/index.php?_course_id='.$course_id);
 
 			exit;
-			
-			}
-	}
+            }
+    }
 }
-
 // display
 
 
@@ -97,7 +95,6 @@ if ($_course_id > 0) {
 global $onload;
 $onload = "document.form.title.focus();";
 require(TR_INCLUDE_PATH.'header.inc.php'); 
-
 
 $savant->display('home/course/course_property.tmpl.php');
 require(TR_INCLUDE_PATH.'footer.inc.php');

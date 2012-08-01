@@ -49,7 +49,7 @@ $mod_path['page_template_dir_int']	= $mod_path['dnd_themod_int']	. 'page_templat
 // I include the file immediately "applicaTema" ¬ thing that can inherit variables and constants defined by the system
 include_once($mod_path['dnd_themod_sys'].'page_template.class.php');
 
-// Instantius class Layout (which calls the constructor) 
+// Instantiate class layout (which calls the constructor) 
 $mod		= new page_template($mod_path);
 
 // I include the necessary classes
@@ -60,7 +60,7 @@ $is_author	= $user_priv[1]['is_author'];
 
 // I take the list of valid themes available
 
-$list_page_templates = array();
+$list_page_template = array();
 
 if($_content_id != "" && $_course_id != "") {
 	
@@ -70,10 +70,10 @@ if($_content_id != "" && $_course_id != "") {
 	if($content['structure']!='') {
 		$structManager = new StructureManager($content['structure']);
 		$array = $structManager->getContent($content['title']);
-		$list_page_templates = $mod->page_template_complies($array);
+		$list_page_template = $mod->page_template_complies($array);
 			
 	}  else {
-		$list_page_templates = $mod->get_list_page_template();
+		$list_page_template = $mod->get_list_page_template();
 	}
 
 }

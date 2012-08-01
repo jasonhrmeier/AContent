@@ -27,15 +27,12 @@ function in_array_cin($strItem, $arItems)
 
 function get_tabs() {
 	//these are the _AT(x) variable names and their include file
-	/* tabs[tab_id] = array(tab_name, file_name,                accesskey) */
+	/* tabs[tab_id] = array(tab_name, file_name, accesskey) */
 	$tabs[0] = array('content',       		'edit.inc.php',          'n');
 	$tabs[1] = array('metadata',    		'properties.inc.php',    'p');
 	$tabs[2] = array('alternative_content', 'alternatives.inc.php',  'l');	
 	$tabs[3] = array('tests',               'tests.inc.php',         't');
-	//catia
-	//$tabs[4] = array('forums', '');
-	
-	
+
 	return $tabs;
 }
 
@@ -98,7 +95,7 @@ function populate_a4a($cid, $content, $formatting){
 	
 	// Defining alternatives is only available for content type "html".
 	// But don't clean up the a4a tables at other content types in case the user needs them back at html.
-	if ($formatting <> 1) return;
+    if ($formatting <> 1) return;
 
 	include_once(TR_INCLUDE_PATH.'classes/A4a/A4a.class.php');
 	include_once(TR_INCLUDE_PATH.'classes/XML/XML_HTMLSax/XML_HTMLSax.php');	/* for XML_HTMLSax */
@@ -134,12 +131,13 @@ function populate_a4a($cid, $content, $formatting){
 			continue;
 		}
 		
-		// The URL of the movie from youtube.com has been converted above in embed_media().
-		// For example:  http://www.youtube.com/watch?v=a0ryB0m0MiM is converted to
-		// http://www.youtube.com/v/a0ryB0m0MiM to make it playable. This creates the problem
-		// that the parsed-out url (http://www.youtube.com/v/a0ryB0m0MiM) does not match with
-		// the URL saved in content table (http://www.youtube.com/watch?v=a0ryB0m0MiM).
-		// The code below is to convert the URL back to original.
+		/* The URL of the movie from youtube.com has been converted above in embed_media().
+		 For example:  http://www.youtube.com/watch?v=a0ryB0m0MiM is converted to
+		 http://www.youtube.com/v/a0ryB0m0MiM to make it playable. This creates the problem
+		 that the parsed-out url (http://www.youtube.com/v/a0ryB0m0MiM) does not match with
+		 the URL saved in content table (http://www.youtube.com/watch?v=a0ryB0m0MiM).
+		 The code below is to convert the URL back to original.
+        */
 		$file = ContentUtility::convertYoutubePlayURLToWatchURL($file);
 		
 		$resources[] = convertAmp($file);  // converts & to &amp;
@@ -170,12 +168,10 @@ function populate_a4a($cid, $content, $formatting){
 // save all changes to the DB
 function save_changes($redir, $current_tab) {
 	global $contentManager, $addslashes, $msg, $_course_id, $_content_id, $stripslashes;
-	
+
 	$_POST['pid']	= intval($_POST['pid']);
 	$_POST['_cid']	= intval($_POST['_cid']);
-	
 	$_POST['alternatives'] = intval($_POST['alternatives']);
-	
 	$_POST['title'] = trim($_POST['title']);
 	$_POST['head']	= trim($_POST['head']);
 	$_POST['use_customized_head']	= isset($_POST['use_customized_head'])?$_POST['use_customized_head']:0;
@@ -199,21 +195,7 @@ function save_changes($redir, $current_tab) {
 		$content_type_pref = CONTENT_TYPE_CONTENT;
 	}
 
-	/*if (!($release_date = generate_release_date())) {
-		$msg->addError('BAD_DATE');
-	}*/
-
-//	if ($_POST['title'] == '') {
-//		$msg->addError(array('EMPTY_FIELDS', _AT('title')));
-//	}
-		
-//	if (!$msg->containsErrors()) {
         $orig_body_text = $_POST['body_text'];  // used to populate a4a tables
-//		$_POST['title']			= $addslashes($_POST['title']);
-//		$_POST['body_text']		= $addslashes($_POST['body_text']);
-//		$_POST['head']  		= $addslashes($_POST['head']);
-//		$_POST['keywords']		= $addslashes($_POST['keywords']);
-//		$_POST['test_message']	= $addslashes($_POST['test_message']);		
 
 		// add or edit content
 		if ($_POST['_cid']) {
@@ -226,54 +208,25 @@ function save_changes($redir, $current_tab) {
 		} else {
 			/* insert new */
 			$cid = $contentManager->addContent($_course_id,
-												  $_POST['pid'],
-												  $_POST['ordering'],
-												  $_POST['title'],
-												  $_POST['body_text'],
-												  $_POST['keywords'],
-												  $_POST['related'],
-												  $_POST['formatting'],
-												  $_POST['head'],
-												  $_POST['use_customized_head'],
-												  $_POST['test_message'],
-												  $content_type_pref);
+                                                $_POST['pid'],
+                                                $_POST['ordering'],
+                                                $_POST['title'],
+                                                $_POST['body_text'],
+                                                $_POST['keywords'],
+                                                $_POST['related'],
+                                                $_POST['formatting'],
+                                                $_POST['head'],
+                                                $_POST['use_customized_head'],
+                                                $_POST['test_message'],
+                                                $content_type_pref);
 			$_POST['_cid']    = $cid;
 			$_REQUEST['_cid'] = $cid;
 		}
 
-		if ($cid == 0) return;
-        	// re-populate a4a tables based on the new content
+        if ($cid == 0) return;
+        // re-populate a4a tables based on the new content
 		populate_a4a($cid, $orig_body_text, $_POST['formatting']);
-		
-//	}
 
-	/* insert glossary terms */
-	/*
-	if (is_array($_POST['glossary_defs']) && ($num_terms = count($_POST['glossary_defs']))) {
-		global $glossary, $glossary_ids, $msg;
-
-		foreach($_POST['glossary_defs'] as $w => $d) {
-			$old_w = $w;
-			$key = in_array_cin($w, $glossary_ids);
-			$w = urldecode($w);
-			$d = $addslashes($d);
-
-			if (($key !== false) && (($glossary[$old_w] != $d) || isset($_POST['related_term'][$old_w])) ) {
-				$w = addslashes($w);
-				$related_id = intval($_POST['related_term'][$old_w]);
-				$sql = "UPDATE ".TABLE_PREFIX."glossary SET definition='$d', related_word_id=$related_id WHERE word_id=$key AND course_id=$_SESSION[course_id]";
-				$result = mysql_query($sql, $db);
-				$glossary[$old_w] = $d;
-			} else if ($key === false && ($d != '')) {
-				$w = addslashes($w);
-				$related_id = intval($_POST['related_term'][$old_w]);
-				$sql = "INSERT INTO ".TABLE_PREFIX."glossary VALUES (NULL, $_SESSION[course_id], '$w', '$d', $related_id)";
-
-				$result = mysql_query($sql, $db);
-				$glossary[$old_w] = $d;
-			}
-		}
-	}*/
 	if (isset($_GET['tab'])) {
 		$current_tab = intval($_GET['tab']);
 	}
@@ -309,9 +262,6 @@ function save_changes($redir, $current_tab) {
 				if (isset($_POST['alt_'.$type['primary_resource_id'].'_'.$type['type_id']]))
 				{
 					$primaryResourcesTypesDAO->Create($type['primary_resource_id'], $type['type_id']);
-//					$sql = "INSERT INTO ".TABLE_PREFIX."primary_resources_types (primary_resource_id, type_id)
-//					        VALUES (".$type['primary_resource_id'].", ".$type['type_id'].")";
-//					$result = mysql_query($sql, $db);
 				}
 			}
 		}
@@ -320,8 +270,7 @@ function save_changes($redir, $current_tab) {
 	include_once(TR_INCLUDE_PATH.'classes/DAO/ContentTestsAssocDAO.class.php');
 	$contentTestsAssocDAO = new ContentTestsAssocDAO();
 	$test_rows = $contentTestsAssocDAO->getByContent($_POST['_cid']);
-//	$sql = 'SELECT * FROM '.TABLE_PREFIX."content_tests_assoc WHERE content_id=$_POST[cid]";
-//	$result = mysql_query($sql, $db);
+
 	$db_test_array = array();
 	if (is_array($test_rows)) {
 		foreach ($test_rows as $row) {
@@ -343,8 +292,7 @@ function save_changes($redir, $current_tab) {
 		if (!empty($toBeAdded)){
 			foreach ($toBeAdded as $i => $tid){
 				$tid = intval($tid);
-//				$sql = 'INSERT INTO '. TABLE_PREFIX . "content_tests_assoc SET content_id=$_POST[cid], test_id=$tid";
-//				$result = mysql_query($sql, $db);
+
 				if ($contentTestsAssocDAO->Create($_POST['_cid'], $tid) === false){
 					$msg->addError('DB_NOT_UPDATED');
 				}
@@ -353,8 +301,6 @@ function save_changes($redir, $current_tab) {
 	} else {
 		//All tests has been removed.
 		$contentTestsAssocDAO->DeleteByContentID($_POST['_cid']);
-//		$sql = 'DELETE FROM '. TABLE_PREFIX . "content_tests_assoc WHERE content_id=$_POST[cid]";
-//		$result = mysql_query($sql, $db);
 	}
 	//End Add test
 
@@ -628,31 +574,6 @@ function write_temp_file() {
 	$file_name = $_POST['_cid'].'.html';
 
 	if ($handle = fopen(TR_CONTENT_DIR . $file_name, 'wb+')) {
-//		$temp_content = '<h2>'.TR_print(stripslashes($_POST['title']), 'content.title').'</h2>';
-//
-//		if ($_POST['body_text'] != '') {
-//			$temp_content .= format_content(stripslashes($_POST['body_text']), $_POST['formatting'], $_POST['glossary_defs']);
-//		}
-//		$temp_title = $_POST['title'];
-//
-//		$html_template = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-//			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-//		<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-//		<head>
-//			<base href="{BASE_HREF}" />
-//			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-//			<title>{TITLE}</title>
-//			<meta name="Generator" content="ATutor accessibility checker file - can be deleted">
-//		</head>
-//		<body>
-//		{CONTENT}
-//		</body>
-//		</html>';
-//
-//		$page_html = str_replace(	array('{BASE_HREF}', '{TITLE}', '{CONTENT}'),
-//									array($content_base, $temp_title, $temp_content),
-//									$html_template);
-		
 		if (!@fwrite($handle, stripslashes($_POST['body_text']))) {
 			$msg->addError('FILE_NOT_SAVED');       
 	   }

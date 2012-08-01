@@ -203,16 +203,6 @@ $dnd_themod_layout	= new Layout('');
 $rows				= $dnd_themod_layout->appendStyle($rows, $zipfile, $_content_id);
 
 /***************************************/
-
-//if (authenticate(TR_PRIV_CONTENT, TR_PRIV_RETURN)) {
-//	$sql = "SELECT *, UNIX_TIMESTAMP(last_modified) AS u_ts FROM ".TABLE_PREFIX."content WHERE course_id=$course_id ORDER BY content_parent_id, ordering";
-//} else {
-//	$sql = "SELECT *, UNIX_TIMESTAMP(last_modified) AS u_ts FROM ".TABLE_PREFIX."content WHERE course_id=$course_id ORDER BY content_parent_id, ordering";
-//}
-//$result = mysql_query($sql, $db);
-//while ($row = mysql_fetch_assoc($result)) {
-//	if (authenticate(TR_PRIV_CONTENT, TR_PRIV_RETURN) || $contentManager->isReleased($row['content_id']) === TRUE) {
-
 if (is_array($rows)) {
 	foreach ($rows as $row) {
 		$content[$row['content_parent_id']][] = $row;

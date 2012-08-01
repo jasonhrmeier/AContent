@@ -147,27 +147,6 @@ if (is_array($content_test_rows))
 /* the forums associated with the content */
 $contentForumsAssocDAO = new ContentForumsAssocDAO();
 $content_forum_ids = $contentForumsAssocDAO->getByContent($cid);
-//$content_test_rows = $contentManager->getContentTestsAssoc($cid);
-//if (is_array($content_test_rows))
-//{
-//	foreach ($content_test_rows as $content_test_row){
-//		$content_test_ids[] = $content_test_row;
-//	}
-//}
-
-/*TODO***************BOLOGNA***************REMOVE ME**********/
-/* the content forums extension page*/
-//$content_forum_ids = array();	//the html
-//$content_forum_rows = $contentManager->getContentForumsAssoc($cid);
-//if (is_array($content_forum_rows))
-//{
-//	foreach ($content_forum_rows as $content_forum_row){
-//		$content_forum_ids[] = $content_forum_row;
-//	}
-//}
-
-// use any styles that were part of the imported document
-// $_custom_css = $_base_href.'headstuff.php?cid='.$cid.SEP.'path='.urlEncode($_base_href.$course_base_href.$content_base_href);
 
 if ($content_row['use_customized_head'] && strlen($content_row['head']) > 0)
 {
@@ -220,11 +199,6 @@ if ($content_row['text'] == '' && empty($content_test_ids)){
 					
 					if($row['structure']!='') {
 						$content = '<script language="javascript" type="text/javascript">$(\'#activate_page_template_btn\').prop(\'checked\', true).trigger("change");</script>';
-						
-						//$(document).ready( function (){  
-						//.prop("checked",true)
-						//$(\'#activate_page_template_btn\').attr(\'checked\', true);
-						//$(\'#activate_page_template_btn\').triggerHandler(\'change\');
 					} 
 					
 			} else {
@@ -232,9 +206,6 @@ if ($content_row['text'] == '' && empty($content_test_ids)){
 				$msg->addInfo('NO_PAGE_CONTENT');
 			}
 		}
-				
-		
-		
 	}
 
     $content = ContentUtility::formatContent($content, $content_row['formatting']);
@@ -263,17 +234,12 @@ if ($content_row['text'] == '' && empty($content_test_ids)){
 	}
 }
 
-
-
 $savant->assign('content_info', _AT('page_info', AT_date(_AT('page_info_date_format'), $content_row['last_modified'], TR_DATE_MYSQL_DATETIME), $content_row['revision'], AT_date(_AT('inbox_date_format'), $content_row['release_date'], TR_DATE_MYSQL_DATETIME)));
 $savant->assign('course_id', $_course_id);
 
-
 require(TR_INCLUDE_PATH.'header.inc.php');
 
-
 $savant->display('home/course/content.tmpl.php');
-
 
 //save last visit page.
 $_SESSION['last_visited_page'] = $server_protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];

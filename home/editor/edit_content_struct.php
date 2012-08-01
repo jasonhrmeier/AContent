@@ -17,7 +17,7 @@ require_once(TR_INCLUDE_PATH.'../home/editor/editor_tab_functions.inc.php');
 require_once(TR_INCLUDE_PATH.'../home/classes/ContentUtility.class.php');
 require_once(TR_INCLUDE_PATH.'../home/classes/StructureManager.class.php');
 
-global $_content_id, $_content_id, $contentManager, $_course_id;
+global $_content_id, $contentManager, $_course_id;
 $cid = $_content_id;
 
 Utility::authenticate(TR_PRIV_ISAUTHOR);
@@ -88,8 +88,8 @@ if ($_POST['submit'])
 			
 		    $struc_manag = new StructureManager($_POST['title']);	     
 		    $page_temp = $struc_manag->get_page_temp();
-								
-			$struc_manag->createStruct($page_temp, $cid, $_SESSION['course_id']);   
+
+			$struc_manag->createStruct($page_temp, $cid, $_course_id);   
 			
 			
 		}
@@ -182,16 +182,8 @@ if ($cid > 0)
 		$top_num = substr($top_num, 0, strpos($top_num, '.'));
 	}
 	$_tool_shortcuts = ContentUtility::getToolShortcuts($content_row);  // used by header.tmpl.php
-	
-	// display pre-tests
-//	$sql = 'SELECT * FROM '.TABLE_PREFIX."content_prerequisites WHERE content_id=$_REQUEST[cid] AND type='".CONTENT_PRE_TEST."'";
-//	$result = mysql_query($sql, $db);
-//	while ($row = mysql_fetch_assoc($result)) {
-//		$_POST['pre_tid'][] = $row['item_id'];
-//	}
 
 	$savant->assign('ftitle', $content_row['title']);
-//	$savant->assign('shortcuts', $shortcuts);
 	$savant->assign('cid', $cid);
 }
 
@@ -207,6 +199,4 @@ require(TR_INCLUDE_PATH.'footer.inc.php');
 
 //save last visit page.
 $_SESSION['last_visited_page'] = $server_protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-?>
-
 ?>
